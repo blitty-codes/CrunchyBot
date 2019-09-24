@@ -1,5 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api');
-const token = 'TOKEN';
+const token = '953937231:AAHlJrhp8Y_X098MX4M3cZPbckOELQHwXug';
 
 const bot = new TelegramBot(token, { polling: true });
 
@@ -27,11 +27,36 @@ bot.onText(/\/anios (.+)/, (msg) => {
 });
 
 bot.onText(/^\/suma (.+)/, (msg, num) => {
-    console.log(msg);console.log(num);
-    let suma = parseInt(num[1], 10);//cogería el primer número
-    bot.sendMessage(msg.chat.id, `Dime el segundo numero...`);
-    let num1;//coger segundo numero
-    bot.sendMessage(msg.chat.id, `La suma de ${num[1] + num1} es: ${suma}`);
+    //console.log(msg);
+    //console.log(num);
+
+    let op;
+    let res;
+    let numbers;
+
+    //console.log(num[1]);
+    //console.log(num[1].includes('+'));
+    
+    if (num[1].includes('+')){
+        op = '+';
+    } else if (num[1].includes('-')){
+        op = '-';
+    }
+
+    
+    switch(op) {
+        case '+':
+            numbers = num[1].split('+');
+            res = parseInt(numbers[0]) + parseInt(numbers[1]); 
+            console.log(numbers);
+            break;
+        case '-':
+            numbers = num[1].split('-');
+            res = parseInt(numbers[0]) - parseInt(numbers[1]);
+            break;
+    }
+
+    bot.sendMessage(msg.chat.id, `La operación da el resultado: ${res}`);
 });
 
 bot.on('message', (msg) => {// en cualquier tipo de mensaje manda esto
