@@ -1,0 +1,22 @@
+{
+  "name": "bot-telegram",
+  "version": "1.0.0",
+  "description": "Mi propio bot useless para Telegram",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blitty-codes/CrunchyBot.git"
+  },
+  "author": "Blitty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blitty-codes/CrunchyBot/issues"
+  },
+  "homepage": "https://github.com/blitty-codes/CrunchyBot#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.30.0"
+  }
+}
